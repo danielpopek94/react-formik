@@ -17,7 +17,7 @@ function App() {
         radioOption: '',
         color: 'red',
         checkboxOption: false,
-        date: '',
+        date: new Date(),
       }}
        validationSchema={Yup.object({
          firstName: Yup.string()
@@ -101,6 +101,7 @@ function App() {
             <option value="blue">Blue</option>
            </Field>
            <DatePicker
+                dateFormat='dd/MM/yyyy'
                 selected={formik.values.date}
                 onChange={date => formik.setFieldValue('date', date)}
                 {...formik.date='date'}
