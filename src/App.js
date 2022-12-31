@@ -42,44 +42,51 @@ function App() {
      >
        {formik => (
          <form onSubmit={formik.handleSubmit}>
-           <label htmlFor="firstName">First Name</label>
+           <p class="textInput">
            <input
               id="firstName"
               name="firstName"
               type="text"
+              placeholder='First name'
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.firstName}
             />{formik.touched.firstName && formik.errors.firstName ? (
               <div>{formik.errors.firstName}</div>
               ) : null}
+            </p>
 
-              <label htmlFor="lastName">Last Name</label>
+            <p class="textInput">
             <input
               id="lastName"
               name="lastName"
               type="text"
+              placeholder='Last name'
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.lastName}
             />{formik.touched.lastName && formik.errors.lastName ? (
               <div>{formik.errors.lastName}</div>
               ) : null}
-
-              <label htmlFor="email">Email Address</label>
+              </p>
+              
+            <p class="textInput">
             <input
               id="email"
               name="email"
               type="email"
+              placeholder='Email'
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
             />{formik.touched.email && formik.errors.email ? (
               <div>{formik.errors.email}</div>
               ) : null}
+              </p>
 
            <fieldset>
             <legend>Radio buttons</legend>
+            <p class="radioInput">
             <label htmlFor="radioOption1">Option 1</label>
             <input
               id="radioOption1"
@@ -89,7 +96,9 @@ function App() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
+            </p>
 
+            <p class="radioInput">
             <label htmlFor="radioOption2">Option 2</label>
             <input
               id="radioOption2"
@@ -99,6 +108,7 @@ function App() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
+            </p>
            </fieldset>
            <Field as="select" name="color">
             <option value="red">Red</option>
@@ -111,6 +121,8 @@ function App() {
                 onChange={date => formik.setFieldValue('date', date)}
                 {...formik.date='date'}
            />
+           <p class="checkInput">
+           <label htmlFor="checkboxOption">Terms and some stuff</label>
            <input
             id="checkboxOption"
             type="checkbox"
@@ -119,7 +131,8 @@ function App() {
             onBlur={formik.handleBlur}
             {...formik.getFieldProps('checkboxOption')}
           />
-           <button type="submit">Submit</button>
+          </p>
+           <button id="submit" type="submit">Submit</button>
          </form>
        )}
      </Formik>
