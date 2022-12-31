@@ -34,6 +34,9 @@ function App() {
          setTimeout(() => {
            alert(JSON.stringify(values, null, 2));
            setSubmitting(false);
+           Object.entries(values).forEach(([key,value])=>{
+            localStorage.setItem(key,value);
+           });
          }, 400);
        }}
      >
@@ -47,10 +50,10 @@ function App() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.firstName}
-            />
-              {formik.touched.firstName && formik.errors.firstName ? (
+            />{formik.touched.firstName && formik.errors.firstName ? (
               <div>{formik.errors.firstName}</div>
               ) : null}
+
               <label htmlFor="lastName">Last Name</label>
             <input
               id="lastName"
@@ -59,10 +62,10 @@ function App() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.lastName}
-            />
-              {formik.touched.lastName && formik.errors.lastName ? (
+            />{formik.touched.lastName && formik.errors.lastName ? (
               <div>{formik.errors.lastName}</div>
               ) : null}
+
               <label htmlFor="email">Email Address</label>
             <input
               id="email"
@@ -71,8 +74,7 @@ function App() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
-            />
-              {formik.touched.email && formik.errors.email ? (
+            />{formik.touched.email && formik.errors.email ? (
               <div>{formik.errors.email}</div>
               ) : null}
 
@@ -84,15 +86,18 @@ function App() {
               type="radio"
               name="radioOption"
               value="option1"
-              {...formik.getFieldProps('radioOption')}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
+
             <label htmlFor="radioOption2">Option 2</label>
             <input
               id="radioOption2"
               type="radio"
               name="radioOption"
               value="option2"
-              {...formik.getFieldProps('radioOption')}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
            </fieldset>
            <Field as="select" name="color">
@@ -106,6 +111,14 @@ function App() {
                 onChange={date => formik.setFieldValue('date', date)}
                 {...formik.date='date'}
            />
+           <input
+            id="checkboxOption"
+            type="checkbox"
+            name="checkboxOption"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            {...formik.getFieldProps('checkboxOption')}
+          />
            <button type="submit">Submit</button>
          </form>
        )}
