@@ -1,6 +1,8 @@
 body{
   padding: 20px;
   font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .textInput{
   justify-content: center;
