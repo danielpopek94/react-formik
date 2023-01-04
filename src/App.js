@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 function App() {
+  console.log('xd');
   return (
     <div>
     <Formik
