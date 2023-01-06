@@ -4,6 +4,7 @@ import { Field,Formik } from 'formik';
 import * as Yup from 'yup';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import reactDOM from "react-dom/client";
 
 
 function App() {
