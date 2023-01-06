@@ -12,8 +12,9 @@ function App() {
     <div className='result'>
       <p>Full name: {localStorage.firstName} {localStorage.lastName}</p>
       <p>Email: {localStorage.email}</p>
-      <p>Email: {localStorage.email}</p>
-      <p>Email: {localStorage.email}</p>
+      <p>Programmer: {localStorage.radioOption}</p>
+      <p>Form of employment: {localStorage.employment}</p>
+      <p>Date: {localStorage.date}</p>
     </div>
     <Formik
        initialValues={{
@@ -33,7 +34,6 @@ function App() {
            .max(20, 'Must be 20 characters or less')
            .required('Required'),
          email: Yup.string().email('Invalid email address').required('Required'),
-         color: Yup.string().required('Color is required!'),
          date: Yup.date().required('Required'),
        })}
        onSubmit={(values, { setSubmitting }) => {
@@ -117,9 +117,9 @@ function App() {
             </p>
            </fieldset>
            <Field id="selectList" as="select" name="employment">
-            <option value="red">B2B</option>
-            <option value="green">Regular job</option>
-            <option value="blue">Freelancer</option>
+            <option value="B2B">B2B</option>
+            <option value="Regular job">Regular job</option>
+            <option value="Freelancer">Freelancer</option>
            </Field>
            <DatePicker
                 dateFormat='dd/MM/yyyy'
