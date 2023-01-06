@@ -10,7 +10,10 @@ function App() {
   return (
     <div>
     <div className='result'>
-      
+      <p>Full name: {localStorage.firstName} {localStorage.lastName}</p>
+      <p>Email: {localStorage.email}</p>
+      <p>Email: {localStorage.email}</p>
+      <p>Email: {localStorage.email}</p>
     </div>
     <Formik
        initialValues={{
@@ -18,7 +21,7 @@ function App() {
         lastName: '',
         email: '',
         radioOption: '',
-        color: 'red',
+        employment: 'B2B',
         checkboxOption: false,
         date: new Date(),
       }}
@@ -45,7 +48,7 @@ function App() {
      >
        {formik => (
          <form onSubmit={formik.handleSubmit}>
-           <p class="textInput">
+           <p className="textInput">
            <input
               id="firstName"
               name="firstName"
@@ -59,7 +62,7 @@ function App() {
               ) : null}
             </p>
 
-            <p class="textInput">
+            <p className="textInput">
             <input
               id="lastName"
               name="lastName"
@@ -73,7 +76,7 @@ function App() {
               ) : null}
               </p>
               
-            <p class="textInput">
+            <p className="textInput">
             <input
               id="email"
               name="email"
@@ -88,35 +91,35 @@ function App() {
               </p>
 
            <fieldset>
-            <legend>Radio buttons</legend>
-            <p class="radioInput">
-            <label htmlFor="radioOption1">Option 1</label>
+            <legend>Are you programmer?</legend>
+            <p className="radioInput">
+            <label htmlFor="radioOption1">Yes</label>
             <input
               id="radioOption1"
               type="radio"
               name="radioOption"
-              value="option1"
+              value="yes"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
             </p>
 
-            <p class="radioInput">
-            <label htmlFor="radioOption2">Option 2</label>
+            <p className="radioInput">
+            <label htmlFor="radioOption2">No</label>
             <input
               id="radioOption2"
               type="radio"
               name="radioOption"
-              value="option2"
+              value="no"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
             </p>
            </fieldset>
-           <Field as="select" name="color">
-            <option value="red">Red</option>
-            <option value="green">Green</option>
-            <option value="blue">Blue</option>
+           <Field id="selectList" as="select" name="employment">
+            <option value="red">B2B</option>
+            <option value="green">Regular job</option>
+            <option value="blue">Freelancer</option>
            </Field>
            <DatePicker
                 dateFormat='dd/MM/yyyy'
@@ -124,7 +127,7 @@ function App() {
                 onChange={date => formik.setFieldValue('date', date)}
                 {...formik.date='date'}
            />
-           <p class="checkInput">
+           <p className="checkInput">
            <label htmlFor="checkboxOption">Terms and some stuff</label>
            <input
             id="checkboxOption"
