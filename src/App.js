@@ -9,6 +9,9 @@ import "react-datepicker/dist/react-datepicker.css";
 function App() {
   return (
     <div>
+    <div className='result'>
+      
+    </div>
     <Formik
        initialValues={{
         firstName: '',
